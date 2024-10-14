@@ -17,7 +17,7 @@ body {
   
   header h1 {
     margin: 0; /* Remove a margem do título */
-    font-size: 2.5em; /* Tamanho da fonte do título */
+    font-size: 2.5rem; /* Tamanho da fonte do título */
     font-weight: bold; /* Estilo do título */
   }
   
@@ -38,7 +38,7 @@ body {
   h2 {
     color: #f08080; /* Cor dos títulos */
     margin-top: 20px;
-    font-size: 1.8em;
+    font-size: 1.8rem;
     font-weight: bold;
   }
   
@@ -116,12 +116,12 @@ body {
   }
   
   .product h3 {
-    font-size: 1.2em;
+    font-size: 1.2rem;
     margin-bottom: 5px;
   }
   
   .product p {
-    font-size: 1em;
+    font-size: 1rem;
     margin-bottom: 10px;
   }
   
