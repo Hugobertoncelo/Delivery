@@ -1,0 +1,215 @@
+/* style.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    color: #333;
+  }
+  
+  header {
+    background-color: #f08080; /* Cor de fundo do cabeçalho */
+    color: white; /* Cor do texto do cabeçalho */
+    padding: 15px 0;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0; /* Remove a margem do título */
+    font-size: 2.5em; /* Tamanho da fonte do título */
+    font-weight: bold; /* Estilo do título */
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white; /* Cor de fundo do container */
+    padding: 20px;
+    border-radius: 10px; /* Borda arredondada */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra do container */
+  }
+  
+  /* Estilos para títulos */
+  h2 {
+    color: #f08080; /* Cor dos títulos */
+    margin-top: 20px;
+    font-size: 1.8em;
+    font-weight: bold;
+  }
+  
+  /* Estilos para parágrafos */
+  p {
+    margin-bottom: 15px;
+    line-height: 1.5; /* Espaçamento entre linhas */
+  }
+  
+  /* Estilos para listas */
+  ul {
+    list-style: none; /* Remove marcadores */
+    padding: 0;
+  }
+  
+  ul li {
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para formulários */
+  form {
+    margin-top: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input,
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc; /* Borda do input */
+    border-radius: 5px;
+  }
+  
+  /* Estilos para botões */
+  button {
+    background-color: #f08080; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Transição suave para hover */
+  }
+  
+  button:hover {
+    background-color: #c04040; /* Cor do botão ao passar o mouse */
+  }
+  
+  /* Estilos da tela de produtos */
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Grid responsivo */
+    gap: 20px;
+  }
+  
+  .product {
+    border: 1px solid #ccc; /* Borda do produto */
+    padding: 15px;
+    text-align: center;
+    border-radius: 5px;
+  }
+  
+  .product img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 5px; /* Borda arredondada para a imagem */
+  }
+  
+  .product h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+  }
+  
+  .product p {
+    font-size: 1em;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos do carrinho de compras */
+  .cart-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .cart-item {
+    border: 1px solid #ccc;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+  }
+  
+  .cart-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 5px; /* Borda arredondada para a imagem */
+  }
+  
+  .cart-item .quantity {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+  }
+  
+  .cart-item .quantity button {
+    background-color: #ccc; /* Cor de fundo do botão de quantidade */
+    color: #333; /* Cor do texto do botão de quantidade */
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 5px;
+  }
+  
+  /* Estilos da finalização do pedido */
+  .order-container {
+    margin-top: 20px; /* Espaçamento superior */
+  }
+  
+  .order-container form {
+    display: flex;
+    flex-direction: column; /* Alinhamento vertical dos campos */
+  }
+  
+  .order-container label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .order-container input,
+  .order-container select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+  
+  /* Estilos da confirmação do pedido */
+  #order-confirmation {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  #order-confirmation h2 {
+    color: #f08080; /* Cor do título */
+    margin-bottom: 10px;
+  }
+  
+  #order-confirmation p {
+    margin-bottom: 5px;
+  }
+  
+  /* Estilos para dispositivos móveis */
+  @media (max-width: 768px) {
+    .products {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+  
+    .cart-item img {
+      width: 80px;
+      height: 80px;
+    }
+  }

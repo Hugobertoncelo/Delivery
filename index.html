@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Delivery App</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <h1>Nome do Delivery</h1>
+        </header>
+        <main>
+            <div class="container">
+                <p>Encontre as melhores opções de comida da cidade.</p>
+                <div class="categories">
+                        <h2>Categorias</h2>
+                        <ul>
+                        <li>Pizzas</li>
+                        <li>Lanches</li>
+                        <li>Bebidas</li>
+                        </ul>
+                </div>
+                <div class="promotions">
+                        <h2>Promoções</h2>
+                        <p>Veja as promoções especiais do dia!</p>
+                </div>
+                <div class="search">
+                        <input type="text" placeholder="Pesquisar produtos...">
+                        <button>Pesquisar</button>
+                </div>
+                <div class="info">
+                        <h2>Informações</h2>
+                        <p>Telefone: (11) 1234-5678</p>
+                        <p>Jardim da Penha - Vitória-ES</p>
+                </div>
+            </div>
+            <div class="container products-container">
+                    <h2>Produtos</h2>
+                    <div class="filter">
+                            <label for="category">Categoria:</label>
+                            <select id="category">
+                            <option value="all">Todas</option>
+                            <option value="pizza">Pizza</option>
+                            <option value="lanche">Lanche</option>
+                            <option value="bebida">Bebida</option>
+                            </select>
+                    </div>
+                    <div class="products">
+                        <!-- Lista de produtos será gerada aqui -->
+                    </div>
+            </div>
+
+                <script>
+                    const products = [
+                        { id: 1, name: 'Pizza de Queijo', price: 30, image: 'pizza.jpg', category: 'pizza' },
+                        { id: 2, name: 'Hambúrguer', price: 20, image: 'hamburguer.jpg', category: 'lanche' },
+                        { id: 3, name: 'Refrigerante', price: 5, image: 'refrigerante.jpg', category: 'bebida' },
+                        // Adicione mais produtos aqui...
+                    ];
+                    const productsContainer = document.querySelector('.products');
+                    function renderProducts(products) {
+                        productsContainer.innerHTML = ''; // Limpa a lista de produtos
+                        products.forEach(product => {
+                        const productElement = document.createElement('div');
+                        productElement.classList.add('product');
+                        productElement.innerHTML = `
+                            <img src="${product.image}" alt="${product.name}">
+                            <h3>${product.name}</h3>
+                            <p>R$ ${product.price}</p>
+                            <button data-id="${product.id}">Adicionar ao Carrinho</button>
+                        `;
+                        productsContainer.appendChild(productElement);
+                        });
+                    }
+                    renderProducts(products); // Renderiza a lista inicial de produtos
+                    const categoryFilter = document.getElementById('category');
+                    categoryFilter.addEventListener('change', function() {
+                        const selectedCategory = this.value;
+                        const filteredProducts = selectedCategory === 'all' 
+                        ? products 
+                        : products.filter(product => product.category === selectedCategory);
+                        renderProducts(filteredProducts);
+                    });
+                </script>
+
+            <div class="container cart-container">
+                <h2>Carrinho de Compras</h2>
+                <div class="cart-items">
+                  <!-- Lista de itens do carrinho será gerada aqui -->
+                </div>
+                <div class="cart-total">
+                  <!-- Total do carrinho será exibido aqui -->
+                </div>
+            </div>
+                <script>
+                    const cartItems = []; // Array para armazenar os itens do carrinho
+                    const cartItemsContainer = document.querySelector('.cart-items');
+                    const cartTotalContainer = document.querySelector('.cart-total');
+                
+                    function updateCart() {
+                    cartItemsContainer.innerHTML = ''; // Limpa a lista de itens do carrinho
+                    cartTotalContainer.innerHTML = ''; // Limpa o total do carrinho
+                
+                    let totalPrice = 0;
+                
+                    if (cartItems.length > 0) {
+                        cartItems.forEach(product => {
+                        const cartItemElement = document.createElement('div');
+                        cartItemElement.classList.add('cart-item');
+                        cartItemElement.innerHTML = `
+                            <img src="${product.image}" alt="${product.name}">
+                            <h3>${product.name}</h3>
+                            <p>R$ ${product.price}</p>
+                            <div class="quantity">
+                            <button data-id="${product.id}" class="decrease">
+                                -
+                            </button>
+                            <span>${product.quantity}</span>
+                            <button data-id="${product.id}" class="increase">+</button>
+                            </div>
+                            <button data-id="${product.id}" class="remove">Excluir</button>
+                        `;
+                        cartItemsContainer.appendChild(cartItemElement);
+                
+                        totalPrice += product.price * product.quantity;
+                        });
+                
+                        const cartTotalElement = document.createElement('div');
+                        cartTotalElement.innerHTML = `
+                        <h3>Total: R$ ${totalPrice}</h3>
+                        <button>Finalizar Compra</button>
+                        `;
+                        cartTotalContainer.appendChild(cartTotalElement);
+                    } else {
+                        const emptyCartMessage = document.createElement('p');
+                        emptyCartMessage.textContent = 'Seu carrinho está vazio.';
+                        cartItemsContainer.appendChild(emptyCartMessage);
+                    }
+                    }
+                
+                    // Adicionar item ao carrinho
+                    document.querySelectorAll('.products button').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const productId = parseInt(this.dataset.id);
+                        const product = products.find(p => p.id === productId);
+                        let existingItem = cartItems.find(item => item.id === productId);
+                
+                        if (existingItem) {
+                        existingItem.quantity++;
+                        } else {
+                        cartItems.push({ ...product, quantity: 1 });
+                        }
+                
+                        updateCart();
+                    });
+                    });
+                
+                    // Aumentar quantidade no carrinho
+                    cartItemsContainer.addEventListener('click', function(event) {
+                    if (event.target.classList.contains('increase')) {
+                        const productId = parseInt(event.target.dataset.id);
+                        const cartItem = cartItems.find(item => item.id === productId);
+                
+                        if (cartItem) {
+                        cartItem.quantity++;
+                        updateCart();
+                        }
+                    }
+                    });
+                
+                    // Diminuir quantidade no carrinho
+                    cartItemsContainer.addEventListener('click', function(event) {
+                    if (event.target.classList.contains('decrease')) {
+                        const productId = parseInt(event.target.dataset.id);
+                        const cartItem = cartItems.find(item => item.id === productId);
+                
+                        if (cartItem && cartItem.quantity > 1) {
+                        cartItem.quantity--;
+                        updateCart();
+                        }
+                    }
+                    });
+                
+                    // Remover item do carrinho
+                    cartItemsContainer.addEventListener('click', function(event) {
+                    if (event.target.classList.contains('remove')) {
+                        const productId = parseInt(event.target.dataset.id);
+                        cartItems.splice(cartItems.findIndex(item => item.id === productId), 1);
+                        updateCart();
+                    }
+                    });
+                </script>
+            <div class="container order-container">
+                <h2>Finalizar Pedido</h2>
+                <form id="order-form">
+                    <div>
+                        <label for="name">Nome:</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div>
+                        <label for="address">Endereço:</label>
+                        <input type="text" id="address" required>
+                    </div>
+                    <div>
+                        <label for="payment">Método de Pagamento:</label>
+                        <select id="payment">
+                            <option value="credit">Cartão de Crédito</option>
+                            <option value="debit">Cartão de Débito</option>
+                            <option value="cash">Dinheiro</option>
+                        </select>
+                    </div>
+                  <button type="submit">Confirmar Pedido</button>
+                </form>
+                <div id="order-confirmation">
+                  <!-- Confirmação do pedido será exibida aqui -->
+                </div>
+            </div>
+            <script>
+                const orderForm = document.getElementById('order-form');
+                const orderConfirmation = document.getElementById('order-confirmation');
+              
+                orderForm.addEventListener('submit', function(event) {
+                  event.preventDefault();
+              
+                  const name = document.getElementById('name').value;
+                  const email = document.getElementById('email').value;
+                  const address = document.getElementById('address').value;
+                  const payment = document.getElementById('payment').value;
+              
+                  const orderDetails = `
+                    <h2>Seu pedido foi confirmado!</h2>
+                    <p>Nome: ${name}</p>
+                    <p>Email: ${email}</p>
+                    <p>Endereço: ${address}</p>
+                    <p>Método de Pagamento: ${payment}</p>
+                    <p>Itens: ${cartItems.map(item => `${item.name} x ${item.quantity}`).join(', ')}</p>
+                    <p>Total: R$ ${totalPrice}</p>
+                  `;
+              
+                  orderConfirmation.innerHTML = orderDetails;
+                });
+            </script>
+        </main>
+        <script src="script.js"></script>
+    </body>
+</html>
