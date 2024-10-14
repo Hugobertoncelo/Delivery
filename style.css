@@ -9,7 +9,7 @@ body {
   }
   
   header {
-    background-color: #f08080; /* Cor de fundo do cabeçalho */
+    background-color: #00875f; /* Cor de fundo do cabeçalho */
     color: white; /* Cor do texto do cabeçalho */
     padding: 15px 0;
     text-align: center;
@@ -80,7 +80,7 @@ body {
   
   /* Estilos para botões */
   button {
-    background-color: #f08080; /* Cor de fundo do botão */
+    background-color: #00875f; /* Cor de fundo do botão */
     color: white; /* Cor do texto do botão */
     padding: 10px 20px;
     border: none;
@@ -90,7 +90,7 @@ body {
   }
   
   button:hover {
-    background-color: #c04040; /* Cor do botão ao passar o mouse */
+    background-color: #00b37e; /* Cor do botão ao passar o mouse */
   }
   
   /* Estilos da tela de produtos */
