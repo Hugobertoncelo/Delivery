@@ -62,11 +62,12 @@ const menuItems = [
     { id: 1, name: 'Hambúrguer Clássico', price: 15.99, category: 'burger', image: './img/classic-burger.jpg', description: 'Carne suculenta, queijo, alface e tomate.' },
     { id: 2, name: 'Hambúrguer Vegetariano', price: 14.99, category: 'burger', image: './img/Veggie.jpeg', description: 'Hambúrguer de grão-de-bico com legumes grelhados.' },
     { id: 3, name: 'Batata Frita', price: 5.99, category: 'side', image: './img/batata-frita.jpg', description: 'Batatas crocantes e douradas.' },
-    { id: 4, name: 'Refrigerante', price: 3.99, category: 'drink', image: './img/coca-cola.jpg', description: 'Diversas opções de refrigerantes.' },
+    { id: 4, name: 'Refrigerante', price: 4.99, category: 'drink', image: './img/coca-cola.jpg', description: 'Diversas opções de refrigerantes.' },
     { id: 5, name: 'Milk-shake', price: 7.99, category: 'drink', image: './img/Milk-shake.jpeg', description: 'Milk-shake cremoso em diversos sabores.' },
     { id: 6, name: 'Texas-Burguer', price: 18.99, category: 'burger', image: './img/burguer2.jpg', description: 'Duas carnes artesanais, queijo cheddar, tomate e picles.' },
     { id: 7, name: 'Batata Rustica', price: 14.99, category: 'side', image: './img/Batata-Rustica.jpeg', description: 'Batata Rustica com Alho ralado e Alecrim' },
-    { id: 8, name: 'FOME ZERO', price: 19.99, category: 'burger', image: './img/fome-zero.jpeg', description: 'Hambúrguer de 10 carnes para os famintos!' }
+    { id: 8, name: 'FOME ZERO', price: 19.99, category: 'burger', image: './img/fome-zero.jpeg', description: 'Hambúrguer de 10 carnes para os famintos!' },
+    { id: 8, name: 'COMBO', price: 29.99, category: 'burger', image: './img/combo1.jpg', description: 'Hambúrguer, 1 copo de coca-cola 500 ml e uma batata média!' }
 ];
 
 const menuItemsContainer = document.querySelector('.menu-items');
@@ -191,16 +192,18 @@ function checkout() {
 
 // Galeria
 const galleryImages = [
-    './img/Big-snack-1.jpeg',
-    './img/Big-snack-2.webp',
-    './img/Big-snack-3.webp',
+    './img/sanduiche-do-chaves.jpg',
+    './img/taco.jpg',
+    './img/combo.jpg',
     './img/galeria3.jpg',
     './img/galeria1.jpg',
     './img/galeria2.jpg',
     './img/galeria6.jpg',
     './img/galeria5.jpg',
-    './img/Big-snack-4.webp',
-    './img/Big-Snack-6.jpeg'
+    './img/cerveja.png',
+    './img/lanche.jpg',
+    './img/cerveja1.webp',
+    './img/porcao.jpg',
 ];
 
 const galleryContainer = document.querySelector('.gallery-images');
