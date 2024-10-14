@@ -1,95 +1,155 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delivery App</title>
-    <link rel="stylesheet" href="style.css">
+    <title>BigSnack</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+
+    <script src="script.js" defer></script>
+    
 </head>
 <body>
     <header>
-        <img src="src/assets/logo.png" alt="Logo Lanchonete e Pizzaria Encanto" class="logo">
-        <h1>Lanchonete e pizzaria Encanto</h1>
+        <nav>
+            <div class="logo" id="typed-logo">
+                <i class="fa-solid fa-burger">BigSnack</i>
+            </div>
+            <button class="menu-toggle" aria-label="Abrir menu">
+            </button>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#gallery">Galeria</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+            <div class="right-icons">
+                <button id="dark-mode-toggle" aria-label="Alternar modo escuro">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="cart-icon" aria-label="Carrinho de compras">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count">0</span>
+                </button>
+            </div>
+        </nav>
     </header>
+
     <main>
-        <div class="container">
-            <p>Encontre as melhores opções de comida da cidade.</p>
-            <div class="categories">
-                <h2>Categorias</h2>
-                <ul>
-                    <li>Pizzas</li>
-                    <li>Lanches</li>
-                    <li>Bebidas</li>
-                </ul>
+        <section id="home">
+            <div class="home-content">
+                <h1>Bem-vindo à <i class="fa-solid fa-burger"> BigSnack</i></h1>
+                <h2>Os melhores hambúrgueres da cidade!</h2>
+                <p>Desfrute dos nossos deliciosos hambúrgueres no conforto da sua casa! Oferecemos um serviço de delivery rápido e seguro para garantir que sua refeição chegue quentinha e saborosa.</p>
+                
+                <a href="#" class="btn">Peça agora!</a>
+
             </div>
-            <div class="promotions">
-                <h2>Promoções</h2>
-                <p>Veja as promoções especiais do dia!</p>
+
+            <div class="home-img">
+                <img src="img/burguer-hero.png" alt="">
             </div>
-            <div class="search">
-                <input type="text" placeholder="Pesquisar produtos...">
-                <button>Pesquisar</button>
+        </section>
+
+        <section id="menu">
+            <h2>Nosso <span>Menu</span></h2>
+            <div class="menu-filters">
+                <button data-filter="all">Todos</button>
+                <button data-filter="burger">Hambúrgueres</button>
+                <button data-filter="side">Acompanhamentos</button>
+                <button data-filter="drink">Bebidas</button>
             </div>
-            <div class="info">
-                <h2>Informações</h2>
-                <p>Telefone: (28) 99945-3033 - (22) 99889-5444</p>
-                <p>Jardim da Penha - Vitória-ES</p>
+            <div class="menu-items">
+                <!-- Os itens do menu serão adicionados dinamicamente via JavaScript -->
+                
             </div>
-        </div>
-        <div class="container products-container">
-            <h2>Produtos</h2>
-            <div class="filter">
-                <label for="category">Categoria:</label>
-                <select id="category">
-                    <option value="all">Todas</option>
-                    <option value="pizza">Pizza</option>
-                    <option value="lanche">Lanche</option>
-                    <option value="bebida">Bebidas</option>
-                </select>
+        </section>
+
+        <section id="gallery">
+            <h2>Galeria</h2>
+            <div class="gallery-images">
+                <!-- As imagens da galeria serão adicionadas dinamicamente via JavaScript -->
             </div>
-            <div class="products">
-                <!-- Lista de produtos será gerada aqui -->
-            </div>
-        </div>
-        <div class="container cart-container">
-            <h2>Carrinho de Compras</h2>
-            <div class="cart-items">
-                <!-- Lista de itens do carrinho será gerada aqui -->
-            </div>
-            <div class="cart-total">
-                <!-- Total do carrinho será exibido aqui -->
-            </div>
-        </div>
-        <div class="container order-container">
-            <h2>Finalizar Pedido</h2>
-            <form id="order-form">
-                <div>
-                    <label for="name">Nome:</label>
-                    <input type="text" id="name" required>
+        </section>
+
+        <section id="contact">
+            <h2>Entre em <span>Contato</span></h2>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name"><strong>Nome:</strong></label>
+                    <input type="text" id="name" name="name" required>
                 </div>
-                <div>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" required>
+                <div class="form-group">
+                    <label for="email"><strong>E-mail:</strong></label>
+                    <input type="email" id="email" name="email" required>
                 </div>
-                <div>
-                    <label for="address">Endereço:</label>
-                    <input type="text" id="address" required>
+                <div class="form-group">
+                    <label for="phone"><strong>Telefone:</strong></label>
+                    <input type="tel" id="phone" name="phone">
                 </div>
-                <div>
-                    <label for="payment">Método de Pagamento:</label>
-                    <select id="payment">
-                        <option value="credit">Cartão de Crédito</option>
-                        <option value="debit">Cartão de Débito</option>
-                        <option value="cash">Dinheiro</option>
+                <div class="form-group">
+                    <label for="subject"><strong>Assunto:</strong></label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Selecione um assunto</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="reservation">Reserva</option>
+                        <option value="complaint">Reclamação</option>
+                        <option value="other">Outro</option>
                     </select>
                 </div>
-                <button type="submit">Confirmar Pedido</button>
+                <div class="form-group">
+                    <label for="message"><strong>Mensagem:</strong></label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit">Enviar</button>
             </form>
-            <div id="order-confirmation">
-                <!-- Confirmação do pedido será exibida aqui -->
+        </section>
+
+        <section id="location">
+            <h2>Nossa <span>Localização</span></h2>
+
+            <iframe class="iframe-teste" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235149.6416695992!2d-43.43681202125976!3d-22.942375859162834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9983ee4077e371%3A0xcef1862bf93a3252!2sMonarca%20Burgers%20-%20Icara%C3%AD!5e0!3m2!1spt-BR!2sbr!4v1722975814168!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            <div class="address-info">
+                <br>
+                <h3>Endereço:</h3>
+                <p>Rua dos Hambúrgueres, 123</p>
+                <p>Bairro Delícia, Cidade Gostosa - UF</p>
+                <p>CEP: 12345-678</p>
+                <h3>Horário de Funcionamento:</h3>
+                <p>Segunda a Sexta: 11h às 23h</p>
+                <p>Sábado e Domingo: 12h às 00h</p>
             </div>
-        </div>
+        </section>
     </main>
-    <script src="src/script.js"></script>
+
+    <footer>
+        <div class="social-media">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p>&copy; 2024 Bárbara | Hudson Hamburgueria BigSnack. Todos os direitos reservados.</p>
+    </footer>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <h2>Seu Carrinho</h2>
+            <div id="cart-items"></div>
+            <p>Total: R$ <span id="cart-total">0.00</span></p>
+            <button id="checkout-btn">Finalizar Compra</button>
+            <button id="close-cart">&times;</button>
+        </div>
+    </div>
+
+    <!--scroll reveal-->
+    
 </body>
+<script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
 </html>
