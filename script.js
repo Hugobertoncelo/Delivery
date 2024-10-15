@@ -179,7 +179,7 @@ function checkout() {
     const encodedMessage = encodeURIComponent(message);
 
     // Cria a URL do WhatsApp com a mensagem pré-preenchida
-    const whatsappURL = `https://wa.me/5564981339346?text=${encodedMessage}`;
+    const whatsappURL = `https://wa.me/5528999453033?text=${encodedMessage}`;
 
     // Redireciona o usuário para o WhatsApp
     window.open(whatsappURL, '_blank');
