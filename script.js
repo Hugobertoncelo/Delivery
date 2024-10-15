@@ -59,15 +59,18 @@ typeWriter(logoText);
 
 // Menu items
 const menuItems = [
-    { id: 1, name: 'Hambúrguer Clássico', price: 15.99, category: 'burger', image: './img/classic-burger.jpg', description: 'Carne suculenta, queijo, alface e tomate.' },
-    { id: 2, name: 'Hambúrguer Vegetariano', price: 14.99, category: 'burger', image: './img/Veggie.jpeg', description: 'Hambúrguer de grão-de-bico com legumes grelhados.' },
-    { id: 3, name: 'Batata Frita', price: 5.99, category: 'side', image: './img/batata-frita.jpg', description: 'Batatas crocantes e douradas.' },
-    { id: 4, name: 'Refrigerante', price: 4.99, category: 'drink', image: './img/coca-cola.jpg', description: 'Diversas opções de refrigerantes.' },
-    { id: 5, name: 'Milk-shake', price: 7.99, category: 'drink', image: './img/Milk-shake.jpeg', description: 'Milk-shake cremoso em diversos sabores.' },
-    { id: 6, name: 'Texas-Burguer', price: 18.99, category: 'burger', image: './img/burguer2.jpg', description: 'Duas carnes artesanais, queijo cheddar, tomate e picles.' },
-    { id: 7, name: 'Batata Rustica', price: 14.99, category: 'side', image: './img/Batata-Rustica.jpeg', description: 'Batata Rustica com Alho ralado e Alecrim' },
+    { id: 1, name: 'HAMBÚRGUER CLÁSSICO', price: 15.99, category: 'burger', image: './img/classic-burger.jpg', description: 'Carne suculenta, queijo, alface e tomate.' },
+    { id: 2, name: 'HAMBÚRGUER VEGETARIANO', price: 14.99, category: 'burger', image: './img/Veggie.jpeg', description: 'Hambúrguer de grão-de-bico com legumes grelhados.' },
+    { id: 3, name: 'BATATA FRITA', price: 5.99, category: 'side', image: './img/batata-frita.jpg', description: 'Batatas crocantes e douradas.' },
+    { id: 4, name: 'REFRIGERANTE', price: 4.99, category: 'drink', image: './img/coca-cola.jpg', description: 'Diversas opções de refrigerantes.' },
+    { id: 5, name: 'MILK-SHAKE', price: 7.99, category: 'drink', image: './img/Milk-shake.jpeg', description: 'Milk-shake cremoso em diversos sabores.' },
+    { id: 6, name: 'TEXAS-BURGUER', price: 18.99, category: 'burger', image: './img/burguer2.jpg', description: 'Duas carnes artesanais, queijo cheddar, tomate e picles.' },
+    { id: 7, name: 'BATATA RÚSTICA', price: 14.99, category: 'side', image: './img/Batata-Rustica.jpeg', description: 'Batata Rustica com Alho ralado e Alecrim' },
     { id: 8, name: 'FOME ZERO', price: 19.99, category: 'burger', image: './img/fome-zero.jpeg', description: 'Hambúrguer de 10 carnes para os famintos!' },
-    { id: 8, name: 'COMBO', price: 29.99, category: 'burger', image: './img/combo1.jpg', description: 'Hambúrguer, 1 copo de coca-cola 500 ml e uma batata média!' }
+    { id: 9, name: 'COMBO 1', price: 29.99, category: 'burger', image: './img/combo1.jpg', description: '1 Hambúrguer, 1 copo de coca-cola 500 ml e uma batata média!' },
+    { id: 10, name: 'BALDE DE FRANGO', price: 19.99, category: 'burger', image: './img/franguinho.jfif', description: 'Deliciosas tiras de frango !' },
+    { id: 11, name: 'HAMBÚRGUER DE FRANGO', price: 10.99, category: 'burger', image: './img/hfrango.avif', description: 'Hambúrguer tradicional com 2 tiras de frango !' },
+    { id: 12, name: 'DUPLO BURGUER', price: 18.99, category: 'burger', image: './img/duploburguer.avif', description: 'Combo com dois deliciosos Hambúrgueres e acompanha um copo de refrigerante de 300ml !' }
 ];
 
 const menuItemsContainer = document.querySelector('.menu-items');
